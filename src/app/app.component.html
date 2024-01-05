@@ -1,10 +1,4 @@
 <p>Football updates</p>
-<div>
-    <div>
-        <app-country-selector></app-country-selector>
-    </div>
-    <div>
-        <app-league-standings></app-league-standings>
-    </div>
-    <router-outlet></router-outlet>
-</div>
+<app-country-selector></app-country-selector>
+<app-league-standings *ngIf="showLeagueStandings"></app-league-standings>
+<router-outlet></router-outlet>

@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CountryService {
+  showLeagueStandings = new Subject<boolean>();
   activatedEmitter = new Subject<string>();
   
   constructor() { }

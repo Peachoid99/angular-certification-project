@@ -7,10 +7,10 @@ import { CountryService } from '../../services/country.service';
   styleUrl: './country-selector.component.css'
 })
 export class CountrySelectorComponent {
-
   constructor(private countryService: CountryService) {}
 
   onSelectCountry(country: string) {
+    this.countryService.showLeagueStandings.next(true);
     this.countryService.activatedEmitter.next(country);
   }
 }

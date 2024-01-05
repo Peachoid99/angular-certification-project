@@ -1,0 +1,13 @@
+<td>{{ standing.rank }}</td>
+<td>
+    <a [routerLink]="['/team', standing.team.id ]">
+        <img class="team-logo" src="{{ standing.team.logo }}" alt="{{ standing.team.name }}">
+        {{ standing.team.name }}
+    </a>
+</td>
+<td>{{ standing.all.played }}</td>
+<td>{{ standing.all.win }}</td>
+<td>{{ standing.all.draw }}</td>
+<td>{{ standing.all.lose }}</td>
+<td>{{ standing.goalsDiff }}</td>
+<td>{{ standing.points }}</td>

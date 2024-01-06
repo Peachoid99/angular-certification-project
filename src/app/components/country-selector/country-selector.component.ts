@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 
 @Component({
@@ -7,10 +7,12 @@ import { CountryService } from '../../services/country.service';
   styleUrl: './country-selector.component.css'
 })
 export class CountrySelectorComponent {
+  @Output() standingsVisibilityChange = new EventEmitter<void>();
+
   constructor(private countryService: CountryService) {}
 
   onSelectCountry(country: string) {
-    this.countryService.showLeagueStandings.next(true);
+    this.standingsVisibilityChange.emit();
     this.countryService.activatedEmitter.next(country);
   }
 }

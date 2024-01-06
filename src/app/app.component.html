@@ -1,4 +1,12 @@
 <p>Football updates</p>
-<app-country-selector></app-country-selector>
-<app-league-standings *ngIf="showLeagueStandings"></app-league-standings>
+
+<app-country-selector
+*ngIf="showCountrySelector"
+(standingsVisibilityChange)="showStandings()">
+</app-country-selector>
+
+<app-league-standings
+*ngIf="showLeagueStandings">
+</app-league-standings>
+
 <router-outlet></router-outlet>

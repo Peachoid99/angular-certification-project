@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CountryService } from './services/country.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,23 @@ import { CountryService } from './services/country.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  showCountrySelector = true;
   showLeagueStandings = false;
+
   title = 'angular-certification-project';
 
-  constructor(private countryService: CountryService) {
-    this.countryService.showLeagueStandings.subscribe((visibility: boolean) => {
-      this.showLeagueStandings = visibility;
+  showStandings() {
+    this.showLeagueStandings = true;
+  }
+
+  constructor(private router: Router) {
+    this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((event: NavigationEnd) => {
+      if (event.url.startsWith('/team/')) {
+        this.showCountrySelector = false;
+        this.showLeagueStandings = false;
+      }
     });
   }
 }

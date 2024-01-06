@@ -3,6 +3,7 @@ import { CountryService } from '../../services/country.service';
 import { FootballApiService } from '../../services/football-api.service';
 import { Standing } from '../../models/standing.model';
 import { SeasonService } from '../../services/season.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-league-standings',
@@ -11,6 +12,7 @@ import { SeasonService } from '../../services/season.service';
 })
 export class LeagueStandingsComponent implements OnInit, OnDestroy {
   standings: Standing[];
+  private countrySubscription: Subscription;
 
   constructor(
     private countryService: CountryService, 
@@ -19,7 +21,7 @@ export class LeagueStandingsComponent implements OnInit, OnDestroy {
   ) {}
   
   ngOnInit(): void {
-    this.countryService.activatedEmitter.subscribe((country: string) => {
+    this.countrySubscription = this.countryService.activatedEmitter.subscribe((country: string) => {
       const leagueId = this.footballApiService.countryLeaguesInfo[country].id;
       const season = this.seasonService.getCurrentSeason();
 
@@ -30,7 +32,7 @@ export class LeagueStandingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // TODO: Cancellare subscription nell'init
+    this.countrySubscription.unsubscribe();
   }
 }
 

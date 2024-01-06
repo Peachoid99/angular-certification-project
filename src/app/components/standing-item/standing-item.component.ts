@@ -10,7 +10,7 @@ export class StandingItemComponent implements OnInit{
   @Input() standing: Standing;
 
   ngOnInit(): void {
-    // TODO ?
+    
   }
 
 }

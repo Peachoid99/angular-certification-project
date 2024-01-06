@@ -1,1 +1,11 @@
-<p>fixture-item works!</p>
+<td>
+    <img class="team-logo" src="{{ fixture.teams.home.logo }}" alt="{{ fixture.teams.home.name }}">
+    {{ fixture.teams.home.name }}
+</td>
+<td>
+    {{ fixture.goals.home }} - {{ fixture.goals.away }}
+</td>
+<td>
+    {{ fixture.teams.away.name }}
+    <img class="team-logo" src="{{ fixture.teams.away.logo }}" alt="{{ fixture.teams.away.name }}">
+</td>

@@ -10,6 +10,6 @@ export class FixtureItemComponent implements OnInit {
   @Input() fixture: Fixture;
 
   ngOnInit(): void {
-    // TODO
+    
   }
 }

@@ -10,10 +10,12 @@ import { filter } from 'rxjs/operators';
 export class AppComponent {
   showCountrySelector = true;
   showLeagueStandings = false;
+  initialState = true;
 
   title = 'angular-certification-project';
 
-  showStandings() {
+  showStandings(): void {
+    this.initialState = false;
     this.showLeagueStandings = true;
   }
 
@@ -24,6 +26,11 @@ export class AppComponent {
       if (event.url.startsWith('/team/')) {
         this.showCountrySelector = false;
         this.showLeagueStandings = false;
+      } else {
+        if(!this.initialState) {
+          this.showCountrySelector = true;
+          this.showLeagueStandings = true;
+        }
       }
     });
   }

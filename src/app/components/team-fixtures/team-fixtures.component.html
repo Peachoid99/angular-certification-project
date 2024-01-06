@@ -1,8 +1,12 @@
-<table>
-    <thead>
-    </thead>
-    <tbody>
-        <tr *ngFor="let fixture of fixtures" app-fixture-item [fixture]="fixture"></tr>
-    </tbody>
-</table>
-<button (click)="goBack()">Back</button>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <table class="table table-striped table-bordered table-hover">
+                <tbody>
+                    <tr *ngFor="let fixture of fixtures" app-fixture-item [fixture]="fixture"></tr>
+                </tbody>
+            </table>
+            <button class="btn btn-default" style="margin-top: 10px;" (click)="goBack()">Back</button>
+        </div>
+    </div>
+</div>

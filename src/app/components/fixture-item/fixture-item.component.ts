@@ -6,10 +6,6 @@ import { Fixture } from '../../models/fixture.model';
   templateUrl: './fixture-item.component.html',
   styleUrl: './fixture-item.component.css'
 })
-export class FixtureItemComponent implements OnInit {
+export class FixtureItemComponent {
   @Input() fixture: Fixture;
-
-  ngOnInit(): void {
-    
-  }
 }

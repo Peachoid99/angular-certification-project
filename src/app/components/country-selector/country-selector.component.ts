@@ -11,7 +11,7 @@ export class CountrySelectorComponent {
 
   constructor(private countryService: CountryService) {}
 
-  onSelectCountry(country: string) {
+  onSelectCountry(country: string): void {
     this.standingsVisibilityChange.emit();
     this.countryService.activatedEmitter.next(country);
   }

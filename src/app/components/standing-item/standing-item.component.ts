@@ -6,11 +6,6 @@ import { Standing } from '../../models/standing.model';
   templateUrl: './standing-item.component.html',
   styleUrl: './standing-item.component.css'
 })
-export class StandingItemComponent implements OnInit{
+export class StandingItemComponent {
   @Input() standing: Standing;
-
-  ngOnInit(): void {
-    
-  }
-
 }

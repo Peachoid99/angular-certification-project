@@ -5,6 +5,7 @@ import { FixtureResponse } from '../models/fixture-response.model';
 import { Fixture } from '../models/fixture.model';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class FootballApiService {
     return this.http
     .get<StandingResponse>('https://v3.football.api-sports.io/standings', {
       headers: new HttpHeaders({
-        'x-rapidapi-key': '1508b9458916766681a756960b23dbcb'
+        'x-rapidapi-key': environment.footballApiKey
       }),
       params: searchParams
     })
@@ -45,12 +46,21 @@ export class FootballApiService {
     return this.http
     .get<FixtureResponse>('https://v3.football.api-sports.io/fixtures', {
       headers: new HttpHeaders({
-        'x-rapidapi-key': '1508b9458916766681a756960b23dbcb'
+        'x-rapidapi-key': environment.footballApiKey
       }),
       params: searchParams
     })
     .pipe(
       map(response => response.response )
     );
+  }
+
+  getCountryByLeagueId(leagueId: string): string | null {
+    for (const country in this.countryLeaguesInfo) {
+      if (this.countryLeaguesInfo[country].id === leagueId) {
+        return country;
+      }
+    }
+    return null;
   }
 }

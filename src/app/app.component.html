@@ -1,12 +1,22 @@
-<p>Football updates</p>
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h3>Football updates</h3>
+        </div>
+        <app-country-selector
+        *ngIf="showCountrySelector"
+        (standingsVisibilityChange)="showStandings()">
+        </app-country-selector>
 
-<app-country-selector
-*ngIf="showCountrySelector"
-(standingsVisibilityChange)="showStandings()">
-</app-country-selector>
+        <hr>
 
-<app-league-standings
-*ngIf="showLeagueStandings">
-</app-league-standings>
+        <app-league-standings
+        *ngIf="showLeagueStandings">
+        </app-league-standings>
 
-<router-outlet></router-outlet>
+        <router-outlet></router-outlet>
+
+    </div>
+</div>
+
+

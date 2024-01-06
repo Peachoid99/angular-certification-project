@@ -22,6 +22,7 @@ export class LeagueStandingsComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     this.countrySubscription = this.countryService.activatedEmitter.subscribe((country: string) => {
+      this.countryService.setSelectedCountry(country);
       const leagueId = this.footballApiService.countryLeaguesInfo[country].id;
       const season = this.seasonService.getCurrentSeason();
 

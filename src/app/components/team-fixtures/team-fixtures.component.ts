@@ -28,7 +28,6 @@ export class TeamFixturesComponent implements OnInit, OnDestroy {
 
       this.footballApiSubscription = this.footballApiService.getFixtures(teamId).subscribe(data => {
         this.fixtures = data;
-        console.log("league id", this.fixtures[0].league.id)
         this.leagueId = this.fixtures[0].league.id;
       });
     });
@@ -40,7 +39,6 @@ export class TeamFixturesComponent implements OnInit, OnDestroy {
 
   goBack(): void {
     const country = this.countryService.getSelectedCountry();
-    console.log(country);
     this.countryService.activatedEmitter.next(country);
 
     this.router.navigateByUrl('/');

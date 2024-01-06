@@ -2,8 +2,6 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { StandingResponse } from '../models/standing-response.model';
 import { FixtureResponse } from '../models/fixture-response.model';
-import { Fixture } from '../models/fixture.model';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 

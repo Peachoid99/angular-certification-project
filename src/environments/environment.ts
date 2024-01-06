@@ -1,3 +1,3 @@
 export const environment = {
-    footballApiKey: '1508b9458916766681a756960b23dbcb'
+    footballApiKey: '1fb94308801b2046ca98cbc34ffa19fd'
 };

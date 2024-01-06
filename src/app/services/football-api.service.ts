@@ -28,7 +28,7 @@ export class FootballApiService {
     return this.http
     .get<StandingResponse>('https://v3.football.api-sports.io/standings', {
       headers: new HttpHeaders({
-        'x-rapidapi-key': '75239b8317e2d1dc66ad0cd83adaaeef'
+        'x-rapidapi-key': '1508b9458916766681a756960b23dbcb'
       }),
       params: searchParams
     })
@@ -45,7 +45,7 @@ export class FootballApiService {
     return this.http
     .get<FixtureResponse>('https://v3.football.api-sports.io/fixtures', {
       headers: new HttpHeaders({
-        'x-rapidapi-key': '75239b8317e2d1dc66ad0cd83adaaeef'
+        'x-rapidapi-key': '1508b9458916766681a756960b23dbcb'
       }),
       params: searchParams
     })
